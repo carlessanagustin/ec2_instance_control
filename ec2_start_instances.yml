@@ -5,9 +5,11 @@
 - hosts: localhost
   gather_facts: False
   connection: local
+  vars:
+    project: ''
   vars_files:
     - vars/aws_config.yml
-    - ec2_instances.yml
+    - "vars/ec2_instances{{ project }}.yml"
   tasks:
     - name: START instances
       tags: start

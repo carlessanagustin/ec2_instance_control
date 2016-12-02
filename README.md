@@ -23,7 +23,13 @@ pip install -r requirements.txt
 
 ## Variables
 
-* Variable file: [ec2_instances.yml](ec2_instances.yml)
+### AWS credentials
+
+* [aws_config.yml](vars/aws_config.yml)
+
+### Variable file
+
+* [ec2_instances.yml](vars/ec2_instances.yml)
 * AWS region:
 
 ```yaml
@@ -38,27 +44,37 @@ instance_ids:
   - i-XXXXXX
 ```
 
+* Project name for control over `vars/ec2_instances<project>.yml`
+
+```yaml
+project: '_myProject'
+```
+
 ## Running
 
 * Start instances
 
 ```shell
 ./ec2_start_instances.yml
+# or
+./ec2_start_instances.yml -e project=<project>
 ```
 
 * Stop instances
 
 ```shell
 ./ec2_stop_instances.yml
+# or
+./ec2_stop_instances.yml -e project=<project>
 ```
 
 ## Examples
 
-Edit `/etc/crontab` and place the following lines for auto stop-start on the weekends
+Edit `/etc/crontab` and place the following lines for auto stop-start on the weekends. With `vars/ec2_instances_myProject.yml`:
 
 ```
-0 1 15 ? * FRI *  ./ec2_stop_instances.yml
-0 1 9 ? * MON *   ./ec2_start_instances.yml
+0 1 15 ? * FRI *  ./ec2_stop_instances.yml -e project=_myProject
+0 1 9 ? * MON *   ./ec2_start_instances.yml -e project=_myProject
 ```
 
 * [HELP](http://www.cronmaker.com/)
