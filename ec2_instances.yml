@@ -1,0 +1,5 @@
+---
+region: eu-west-1
+instance_ids:
+  - i-XXXXXX
+  - i-XXXXXX

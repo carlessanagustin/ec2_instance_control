@@ -1,0 +1,18 @@
+#!/usr/bin/env ansible-playbook -v
+---
+# USAGE: ansible-playbook ec2_stop_instances.yml -vvvv
+
+- hosts: localhost
+  gather_facts: False
+  connection: local
+  vars_files:
+    - vars/aws_config.yml
+    - ec2_instances.yml
+  tasks:
+    - name: STOP instances
+      tags: stop
+      ec2:
+        instance_ids: '{{ instance_ids }}'
+        region: '{{ region }}'
+        state: stopped
+        wait: False
