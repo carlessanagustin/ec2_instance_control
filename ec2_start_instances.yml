@@ -1,4 +1,4 @@
-#!/usr/bin/env ansible-playbook -v
+#!/usr/bin/ansible-playbook -v
 ---
 # USAGE: ansible-playbook ec2_start_instances.yml -vvvv
 
