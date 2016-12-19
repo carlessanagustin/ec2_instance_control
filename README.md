@@ -21,6 +21,13 @@ virtualenv pyenv
 pip install -r requirements.txt
 ```
 
+* Rename and complete variable scripts
+
+```shell
+mv vars/aws_config-sample.yml vars/aws_config.yml
+mv vars/ec2_instances-sample.yml vars/ec2_instances.yml
+```
+
 ## Variables
 
 ### AWS credentials

@@ -8,3 +8,6 @@ Thumbs.db
 *.out
 
 pyenv
+
+vars/ec2_instances_*
+vars/aws_config.yml
